@@ -134,5 +134,8 @@ Both are combined to create a clean, modern, and scalable UI.
 
 ---
 
-Made using Next.js, TypeScript, Tailwind CSS, and Mantine
-Jovan Amarta Liem
+Made using Next.js, TypeScript, Tailwind CSS, and Mantine \n
+
+---
+
+**Jovan Amarta Liem**
