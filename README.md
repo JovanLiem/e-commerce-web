@@ -1,6 +1,6 @@
 # 🛒 E-Commerce Website
 
-This is an **E-Commerce Web Application** built using **Next.js (React)** with **TypeScript (TSX)**, styled using **Tailwind CSS** and **Mantine UI**.  
+This is an **E-Commerce Web Application** built using **Next.js (React)** with **TypeScript (TSX)**, styled using **Mantine UI**.  
 The project is bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and uses the **Next.js App Router**.
 
 ---
@@ -11,7 +11,6 @@ The project is bootstrapped with [`create-next-app`](https://nextjs.org/docs/app
 - Responsive design (mobile & desktop)
 - Reusable React components
 - Modern UI using Mantine
-- Utility-first styling with Tailwind CSS
 - API-based data fetching
 - Fully typed with TypeScript
 
@@ -23,7 +22,6 @@ The project is bootstrapped with [`create-next-app`](https://nextjs.org/docs/app
 - **Library**: React
 - **Language**: TypeScript (TSX)
 - **UI Components**: Mantine
-- **Styling**: Tailwind CSS
 - **HTTP Client**: Axios
 - **Font Optimization**: next/font (Geist)
 
@@ -94,7 +92,6 @@ E-COMMERCE-WEB
 ├── package.json
 ├── package-lock.json
 ├── postcss.config.mjs    # PostCSS configuration
-├── tailwind.config.ts    # Tailwind CSS configuration
 └── README.md
 ```
 
@@ -114,7 +111,6 @@ Changes will be reflected instantly in the browser.
 
 ## 🎨 Styling
 
-- **Tailwind CSS** is used for utility-first custom styling
 - **Mantine** is used for UI components such as:
   - Buttons
   - Layout & Grid
@@ -129,12 +125,11 @@ Both are combined to create a clean, modern, and scalable UI.
 
 - Next.js Documentation: https://nextjs.org/docs
 - Learn Next.js: https://nextjs.org/learn
-- Tailwind CSS Docs: https://tailwindcss.com/docs
 - Mantine Docs: https://mantine.dev
 
 ---
 
-Made using Next.js, TypeScript, Tailwind CSS, and Mantine \n
+Made using Next.js, TypeScript, and Mantine \n
 
 ---
 

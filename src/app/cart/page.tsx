@@ -3,6 +3,18 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import {
+    Container,
+    Title,
+    Text,
+    Button,
+    Card,
+    Stack,
+    Group,
+    Loader,
+} from '@mantine/core';
+import { IconBrandWhatsapp } from '@tabler/icons-react';
+
 import CartItemComponent from '@/components/CardItem';
 import { useAuth } from '@/context/AuthContext';
 import { Cart } from '@/types';
@@ -37,7 +49,10 @@ export default function CartPage() {
 
     const calculateTotal = () => {
         if (!cart) return 0;
-        return cart.items.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
+        return cart.items.reduce(
+            (sum, item) => sum + Number(item.price) * item.quantity,
+            0
+        );
     };
 
     const handleCheckout = async () => {
@@ -55,7 +70,6 @@ export default function CartPage() {
 
             window.open(data.url, '_blank');
 
-            // Hapus semua item dari cart setelah checkout
             const token = localStorage.getItem('token');
             for (const item of cart.items) {
                 await axios.delete(`/api/cart?productId=${item.product_id}`, {
@@ -72,56 +86,61 @@ export default function CartPage() {
 
     if (loading) {
         return (
-            <div className="max-w-4xl mx-auto px-4 py-8">
-                <div className="text-center text-gray-600 dark:text-gray-400">Loading...</div>
-            </div>
+            <Container size="md" py="xl">
+                <Group justify="center">
+                    <Loader />
+                </Group>
+            </Container>
         );
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
+        <Container size="md" py="xl">
+            <Title order={1} mb="lg">
                 Keranjang Belanja
-            </h1>
+            </Title>
 
             {!cart || cart.items.length === 0 ? (
-                <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">
-                        Keranjang Anda masih kosong
-                    </p>
-                    <button
-                        onClick={() => router.push('/products')}
-                        className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg"
-                    >
-                        Mulai Belanja
-                    </button>
-                </div>
+                <Card withBorder shadow="md" padding="xl" radius="md">
+                    <Stack align="center">
+                        <Text c="dimmed">Keranjang Anda masih kosong</Text>
+                        <Button onClick={() => router.push('/products')}>
+                            Mulai Belanja
+                        </Button>
+                    </Stack>
+                </Card>
             ) : (
-                <div className="space-y-4">
+                <Stack gap="md">
                     {cart.items.map((item) => (
-                        <CartItemComponent key={item.product_id} item={item} onUpdate={fetchCart} />
+                        <CartItemComponent
+                            key={item.product_id}
+                            item={item}
+                            onUpdate={fetchCart}
+                        />
                     ))}
 
-                    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mt-6">
-                        <div className="flex justify-between items-center mb-6">
-                            <span className="text-xl font-semibold text-gray-900 dark:text-white">
-                                Total:
-                            </span>
-                            <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                    <Card withBorder shadow="md" padding="lg" radius="md">
+                        <Group justify="space-between" mb="md">
+                            <Text fw={600} size="lg">
+                                Total
+                            </Text>
+                            <Text fw={700} size="xl" c="blue">
                                 Rp {calculateTotal().toLocaleString('id-ID')}
-                            </span>
-                        </div>
+                            </Text>
+                        </Group>
 
-                        <button
+                        <Button
+                            color="green"
+                            size="lg"
+                            fullWidth
+                            leftSection={<IconBrandWhatsapp size={20} />}
                             onClick={handleCheckout}
-                            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 text-lg"
                         >
-                            <span>💬</span>
                             Pesan via WhatsApp
-                        </button>
-                    </div>
-                </div>
+                        </Button>
+                    </Card>
+                </Stack>
             )}
-        </div>
+        </Container>
     );
 }

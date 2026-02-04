@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import '@mantine/core/styles.css';
+
 import { ColorSchemeScript } from '@mantine/core';
 import { AuthProvider } from '@/context/AuthContext';
 import { ThemeProvider } from '@/context/ThemeContext';
@@ -18,7 +20,7 @@ export default function RootLayout({
     return (
         <html lang="id" suppressHydrationWarning>
             <head>
-                <ColorSchemeScript />
+                <ColorSchemeScript defaultColorScheme="dark" />
             </head>
             <body>
                 <ThemeProvider>
