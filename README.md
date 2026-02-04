@@ -129,7 +129,7 @@ Both are combined to create a clean, modern, and scalable UI.
 
 ---
 
-Made using Next.js, TypeScript, and Mantine \n
+Made using Next.js, TypeScript, and Mantine
 
 ---
 
