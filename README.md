@@ -3,6 +3,9 @@
 This is an **E-Commerce Web Application** built using **Next.js (React)** with **TypeScript (TSX)**, styled using **Mantine UI**.  
 The project is bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and uses the **Next.js App Router**.
 
+This project is deployed and can be accessed on:
+https://jualan.jovan-liem.my.id
+
 ---
 
 ## ✨ Features
